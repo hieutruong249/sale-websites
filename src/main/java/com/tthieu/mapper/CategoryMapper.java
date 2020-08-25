@@ -2,6 +2,7 @@ package com.tthieu.mapper;
 
 import com.tthieu.model.CategoryModel;
 
+import javax.servlet.annotation.WebServlet;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,7 +13,7 @@ public class CategoryMapper implements RowMapper{
         try {
             model.setId(resultSet.getInt("id"));
             model.setName(resultSet.getString("name"));
-            model.setSlug(resultSet.getString("slug"));
+            model.setSlug(resultSet.getString("code"));
             return model;
         } catch (SQLException e) {
             return null;

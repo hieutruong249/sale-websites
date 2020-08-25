@@ -14,16 +14,16 @@
 <div style="margin-top: 60px">
     <ul class="nav nav-pills nav-justified">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Trang chủ</a>
+            <a class="nav-link" href="#">Trang chủ</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Quản lý danh mục</a>
+            <a class="nav-link" href=" <c:url value='/admin-category'/>">Quản lý danh mục</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Quản lý sản phẩm</a>
+            <a class="nav-link" href="<c:url value='/admin-product'/>">Quản lý sản phẩm</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Quản lý người dùng</a>
+            <a class="nav-link" href="<c:url value='/admin-user'/>">Quản lý người dùng</a>
         </li>
     </ul>
 </div>

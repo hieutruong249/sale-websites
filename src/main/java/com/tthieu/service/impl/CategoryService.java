@@ -1,7 +1,6 @@
 package com.tthieu.service.impl;
 
 import com.tthieu.dao.ICategoryDAO;
-import com.tthieu.dao.impl.CategoryDAO;
 import com.tthieu.model.CategoryModel;
 import com.tthieu.service.ICategoryService;
 
