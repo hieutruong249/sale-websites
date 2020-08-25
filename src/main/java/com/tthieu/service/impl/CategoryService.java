@@ -5,15 +5,13 @@ import com.tthieu.dao.impl.CategoryDAO;
 import com.tthieu.model.CategoryModel;
 import com.tthieu.service.ICategoryService;
 
+import javax.inject.Inject;
 import java.util.List;
 
 public class CategoryService implements ICategoryService {
 
+    @Inject
     private ICategoryDAO category;
-
-    public CategoryService() {
-        category = new CategoryDAO();
-    }
 
     @Override
     public List<CategoryModel> findAll() {
