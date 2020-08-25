@@ -57,6 +57,19 @@
       <version>2.4.2</version>
     </dependency>
 
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.23</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet-core -->
+    <dependency>
+      <groupId>org.jboss.weld.servlet</groupId>
+      <artifactId>weld-servlet-core</artifactId>
+      <version>3.1.4.Final</version>
+    </dependency>
+
   </dependencies>
 
   <build>
