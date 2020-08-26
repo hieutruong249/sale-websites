@@ -1,6 +1,5 @@
 package com.tthieu.controller.web;
 
-import com.tthieu.dao.ICommentDAO;
 import com.tthieu.service.ICategoryService;
 import com.tthieu.service.ICommentService;
 import com.tthieu.service.IProductService;
@@ -24,7 +23,7 @@ public class Product extends HttpServlet {
     IProductService productService;
 
     @Inject
-    ICommentDAO commentService;
+    ICommentService commentService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
