@@ -1,8 +1,6 @@
 package com.tthieu.dao.impl;
 
-import com.tthieu.dao.ICategoryDAO;
 import com.tthieu.dao.IProductDAO;
-import com.tthieu.mapper.CategoryMapper;
 import com.tthieu.mapper.ProductMapper;
 import com.tthieu.model.CategoryModel;
 import com.tthieu.model.ProductModel;
