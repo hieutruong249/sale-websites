@@ -25,7 +25,8 @@ public class Home extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/html;charset=UTF-8");
 
-        System.out.println(category.findAll().size());
+        //System.out.println(category.findAll().size());
+        request.setAttribute("list",category.findAll());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/home.jsp");
         dispatcher.forward(request, response);
     }

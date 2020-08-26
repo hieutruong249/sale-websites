@@ -15,7 +15,7 @@ public interface ICategoryService {
 
     void update(CategoryModel model);
 
-    void delete(CategoryModel model);
+    void delete(int id);
 
     int count(String sql, Object... parameters);
 }

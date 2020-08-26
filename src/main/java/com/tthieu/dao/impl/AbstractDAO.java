@@ -16,7 +16,6 @@ public class AbstractDAO<T> implements GenericDAO<T> {
             String url = "jdbc:mysql://localhost:3306/jspservletjdbc";
             String user = "root";
             String password = "";
-            System.out.println("tc");
             return DriverManager.getConnection(url, user, password);
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -84,12 +83,79 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 
     @Override
     public int insert(String sql, Object... parameters) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            int id = 0;
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            setParameters(statement, parameters);
+            statement.executeUpdate();
+            resultSet = statement.getGeneratedKeys();
+            if (resultSet.next()) {
+                id = resultSet.getInt(1);
+            }
+            connection.commit();
+            return id;
+        } catch (SQLException e) {
+            if (connection != null) {
+                try {
+                    connection.rollback();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+            } catch (SQLException e2) {
+                e2.printStackTrace();
+            }
+        }
         return 0;
     }
 
     @Override
     public void update(String sql, Object... parameters) {
-
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = getConnection();
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(sql);
+            setParameters(statement, parameters);
+            statement.executeUpdate();
+            connection.commit();
+        } catch (SQLException e) {
+            if (connection != null) {
+                try {
+                    connection.rollback();
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (SQLException e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 
     @Override

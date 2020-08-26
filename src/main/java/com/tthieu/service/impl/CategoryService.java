@@ -19,27 +19,27 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public CategoryModel findOne(int id) {
-        return null;
+        return category.findOne(id);
     }
 
     @Override
     public List<CategoryModel> findByName(String name) {
-        return null;
+        return category.findByName(name);
     }
 
     @Override
     public int add(CategoryModel model) {
-        return 0;
+        return category.add(model.getName());
     }
 
     @Override
     public void update(CategoryModel model) {
-
+        category.update(model.getName(), model.getIsDelete(), model.getId());
     }
 
     @Override
-    public void delete(CategoryModel model) {
-
+    public void delete(int id) {
+        category.del(id);
     }
 
     @Override

@@ -23,10 +23,25 @@ public class CategoryController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String action = req.getParameter("action");
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/html;charset=UTF-8");
+
         if(action!=null){
-            System.out.println(action);
+            //System.out.println(action);
+            if(action.equals("add")){
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/category/add.jsp");
+                dispatcher.forward(req, resp);
+            }else if(action.equals("edit")){
+                int id = Integer.parseInt(req.getParameter("id"));
+
+                CategoryModel model = category.findOne(id);
+                req.setAttribute("model", model);
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/category/edit.jsp");
+                dispatcher.forward(req, resp);
+            }
+
         }else {
-            resp.setContentType("application/html;charset=UTF-8");
+
             List<CategoryModel> list = category.findAll();
             req.setAttribute("list", list);
             RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/category/list.jsp");

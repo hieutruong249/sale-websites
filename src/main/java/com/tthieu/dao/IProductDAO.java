@@ -1,15 +1,15 @@
 package com.tthieu.dao;
 
-import com.tthieu.model.CategoryModel;
+import com.tthieu.model.ProductModel;
 
 import java.util.List;
 
-public interface ICategoryDAO {
-    List<CategoryModel> findAll();
+public interface IProductDAO {
+    List<ProductModel> findAll();
 
-    CategoryModel findOne(int id);
+    ProductModel findOne(int id);
 
-    List<CategoryModel> findByName(String name);
+    List<ProductModel> findByName(String name);
 
     int add(Object... parameters);
 

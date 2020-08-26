@@ -35,8 +35,8 @@
         <c:forEach items="${list}" var="item">
             <tr>
                 <th scope="row">${item.id}</th>
-                <td>${item.getName()}</td>
-                <td>${item.getIsDelete()}</td>
+                <td>${item.name}</td>
+                <td>${item.isDelete}</td>
                 <td>
                     <a class="btn btn-primary mr-right" role="button" href="<c:url value='/admin-category?action=edit&id=${item.id}'/> ">Chỉnh sửa</a>
                 </td>
