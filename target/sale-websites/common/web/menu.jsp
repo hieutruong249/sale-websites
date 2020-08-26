@@ -17,12 +17,10 @@
 
     <h1 class="my-4">Shop Name</h1>
     <div class="list-group">
-        <c:forEach items="${list}" var="item">
-            <a href='<c:url value="/danh-muc?id=${item.id}"/>' class="list-group-item">${item.name}</a>
+        <c:forEach items="${listCategory}" var="item">
+            <a href='<c:url value="/category?id=${item.id}"/>' class="list-group-item">${item.name}</a>
         </c:forEach>
-        <a href="#" class="list-group-item">Category 1</a>
-        <a href="#" class="list-group-item">Category 2</a>
-        <a href="#" class="list-group-item">Category 3</a>
+
     </div>
 
 </div>

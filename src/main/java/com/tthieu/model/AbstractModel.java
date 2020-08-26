@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractModel<T> {
-
+	
 	private int id;
 	private Timestamp createdDate;
 	private String name;

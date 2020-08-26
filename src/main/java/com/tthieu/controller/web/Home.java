@@ -1,9 +1,8 @@
 package com.tthieu.controller.web;
 
-import com.tthieu.dao.ICategoryDAO;
-import com.tthieu.dao.impl.CategoryDAO;
+
 import com.tthieu.service.ICategoryService;
-import com.tthieu.service.impl.CategoryService;
+import com.tthieu.service.IProductService;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -18,15 +17,17 @@ import java.io.IOException;
 public class Home extends HttpServlet {
 
     @Inject
-    private ICategoryService category;
+    private ICategoryService categoryService;
 
+    @Inject
+    private IProductService productService;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/html;charset=UTF-8");
 
-        //System.out.println(category.findAll().size());
-        request.setAttribute("list",category.findAll());
+        request.setAttribute("listCategory", categoryService.findAll());
+        request.setAttribute("listProduct", productService.findAll());
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/home.jsp");
         dispatcher.forward(request, response);
     }

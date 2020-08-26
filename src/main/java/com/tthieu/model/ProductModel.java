@@ -1,28 +1,28 @@
 package com.tthieu.model;
 
 public class ProductModel extends AbstractModel{
-    private String shortSumary;
-    private String conten;
+    private String shortDescription;
+    private String content;
     private String image;
     private double price;
     private int categoryId;
     private String manufacturer;
     private int views;
 
-    public String getShortSumary() {
-        return shortSumary;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
-    public void setShortSumary(String shortSumary) {
-        this.shortSumary = shortSumary;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
-    public String getConten() {
-        return conten;
+    public String getContent() {
+        return content;
     }
 
-    public void setConten(String conten) {
-        this.conten = conten;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getImage() {

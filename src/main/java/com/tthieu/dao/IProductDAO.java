@@ -11,6 +11,8 @@ public interface IProductDAO {
 
     List<ProductModel> findByName(String name);
 
+    List<ProductModel> findByCategoryId(int id);
+
     int add(Object... parameters);
 
     void update(Object... parameters);

@@ -14,12 +14,12 @@
 <body>
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Thêm danh mục</h3>
+        <h3 class="panel-title">Add category</h3>
     </div>
     <div class="panel-body">
         <form method="POST" action='<c:url value="/api-admin-category?action=add"/> ' id="frmAdd">
             <div class="form-group">
-                <label for="txtCategoryName">Tên danh mục</label>
+                <label for="txtName">Name category</label>
                 <input type="text" class="form-control" id="txtName" name="name" autofocus>
                 <p style="color:red" id="validateName"></p>
             </div>
@@ -27,7 +27,7 @@
                 <<
             </a>
             <button type="submit" class="btn btn-primary" id="btn">
-                <span class="glyphicon glyphicon-ok-circle"></span> Lưu
+                <span class="glyphicon glyphicon-ok-circle"></span> Save
             </button>
 
         </form>

@@ -15,13 +15,13 @@
 <body>
 <div class="panel panel-default">
     <div class="panel-heading" style="display:flex; flex:1; justify-content:space-between; align-items:center">
-        <span class="panel-title">Chỉnh sửa chuyên mục</span>
+        <span class="panel-title">Edit category</span>
     </div>
     <div class="panel-body">
         <form method="POST" id="frmEdit" action="<c:url value='/api-admin-category?action=edit'/>">
             <input name="id" value='${model.id}'type="hidden">
             <div class="form-group">
-                <label for="txtCategoryName">Tên danh mục</label>
+                <label for="txtCategoryName">Name category</label>
                 <input type="text" class="form-control" id="txtName" name="name" autofocus
                        value='${model.name}'>
 
@@ -30,9 +30,9 @@
                 <<
             </a>
             <button type="submit" class="btn btn-primary">
-                Cập nhật
+                Update
             </button>
-            <a class="btn btn-danger" role="button" href="<c:url value='/api-admin-category?action=delete&id=${model.id}'/>" >Xoá</a>
+            <a class="btn btn-danger" role="button" href="<c:url value='/api-admin-category?action=delete&id=${model.id}'/>" >Delete</a>
 
         </form>
     </div>

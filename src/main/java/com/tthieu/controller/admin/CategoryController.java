@@ -31,6 +31,7 @@ public class CategoryController extends HttpServlet {
             if(action.equals("add")){
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/category/add.jsp");
                 dispatcher.forward(req, resp);
+
             }else if(action.equals("edit")){
                 int id = Integer.parseInt(req.getParameter("id"));
 

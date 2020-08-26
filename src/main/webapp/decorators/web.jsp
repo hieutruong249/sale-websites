@@ -42,6 +42,7 @@
 
         <div class="col-lg-9">
             <dec:body/>
+
         </div>
         <!-- /.col-lg-9 -->
 
