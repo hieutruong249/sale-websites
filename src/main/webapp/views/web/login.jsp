@@ -23,12 +23,15 @@
         <!-- Icon -->
         <div class="fadeIn first">
             <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png" style="height: 50px; width: 50px" id="icon" alt="User Icon" />
+            <c:if test="${not empty message}">
+                <br><small style="color: firebrick">${message}</small>
+            </c:if>
         </div>
 
         <!-- Login Form -->
-        <form method="post">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <form method="post" action="<c:url value="/login"/> ">
+            <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
 

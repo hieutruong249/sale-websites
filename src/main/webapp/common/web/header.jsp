@@ -36,12 +36,23 @@
         <li class="nav-item">
             <a class="nav-link" href="<c:url value='/shopcart'/>">Shopcart</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<c:url value='/login'/>">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="<c:url value='/register'/>">Resgister</a>
-        </li>
+        <c:if test="${not empty USERMODEL}">
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='#'/>">Welcome, ${USERMODEL.fullname}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='/logout'/>">Logout</a>
+            </li>
+        </c:if>
+        <c:if test="${empty USERMODEL}">
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='/login'/>">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<c:url value='/register'/>">Resgister</a>
+            </li>
+        </c:if>
+
     </ul>
 
 </nav>
