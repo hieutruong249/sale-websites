@@ -12,6 +12,7 @@ public class AbstractModel<T> {
 	private String slug;
 	private String alert;
 	private String message;
+	private int isDelete = 0;
 
 	public int getIsDelete() {
 		return isDelete;
@@ -20,8 +21,6 @@ public class AbstractModel<T> {
 	public void setIsDelete(int isDelete) {
 		this.isDelete = isDelete;
 	}
-
-	private int isDelete = 0;
 
 	public int getId() {
 		return id;

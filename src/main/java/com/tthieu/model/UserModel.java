@@ -1,10 +1,20 @@
 package com.tthieu.model;
 
-public class UserModel {
+public class UserModel extends AbstractModel{
     private String username;
     private String password;
     private int roleId;
     private String fullname;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    private String email;
 
     public String getFullname() {
         return fullname;
@@ -39,5 +49,17 @@ public class UserModel {
 
     public void setRoleId(int roleId) {
         this.roleId = roleId;
+    }
+
+    @Override
+    public String toString() {
+        return "UserModel{" +
+                "id='" + getId() + '\'' +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", roleId=" + roleId +
+                ", fullname='" + fullname + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

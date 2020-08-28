@@ -1,5 +1,8 @@
 package com.tthieu.controller.web;
 
+
+import com.tthieu.utils.SessionUtil;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,19 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/register"})
-public class Register extends HttpServlet {
-
+@WebServlet(urlPatterns = "/logout")
+public class Logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/web/register.jsp");
-        dispatcher.forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        SessionUtil.getInstance().removeValue(req,"USERMODEL");
+        resp.sendRedirect(req.getContextPath() + "trang-chu");
     }
 }

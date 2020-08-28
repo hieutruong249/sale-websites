@@ -23,6 +23,7 @@ public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 
     @Override
     public void update(Object... parameters) {
-
+        String sql = "UPDATE user SET username = ?, password = ?, roleId = ?, fullname = ?, isDeleted = ? WHERE id = ?";
+        update(sql, parameters);
     }
 }
