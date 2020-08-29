@@ -32,19 +32,17 @@ public class UserAPI extends HttpServlet {
 
         if (model.getType().equals("login")) {
             UserModel userModel = null;
-
+            int index = 0;
             userModel = userService.findOne(model.getUsername(), model.getPassword());
             if (userModel != null) {
-                String url = null;
                 SessionUtil.getInstance().putValue(req, "USERMODEL", userModel);
                 if (userModel.getRoleId() == 1) {
-                    mapper.writeValue(resp.getOutputStream(), 1); //redirect admin page
+                    index = 1; //redirect admin page
                 } else {
-                    mapper.writeValue(resp.getOutputStream(), 2); //redirect user page
+                    index = 2; //redirect user page
                 }
-            } else {
-                mapper.writeValue(resp.getOutputStream(), 0); //err
             }
+            mapper.writeValue(resp.getOutputStream(), index);
         } else if (model.getType().equals("register")) {
             mapper.writeValue(resp.getOutputStream(), userService.add(model));
         }

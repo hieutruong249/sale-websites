@@ -24,7 +24,7 @@
     <table class="table" >
         <thead class="thead-light">
         <tr>
-            <th scope="col">id</th>
+            <th scope="col">ID</th>
             <th scope="col">Name category</th>
             <th scope="col">Status</th>
             <th scope="col"></th>

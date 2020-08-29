@@ -14,11 +14,12 @@
     <title>Title</title>
 </head>
 <body>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Add category</h3>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Add User</h5>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <form id="frmAdd">
             <input type="hidden" name="type" value="register">
             <div class="form-group">
@@ -46,6 +47,7 @@
         </form>
     </div>
 </div>
+
 
 <script>
     $('#btnAdd').click(function (e) {

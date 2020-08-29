@@ -14,55 +14,61 @@
 
 </head>
 <body>
-<div class="panel-body">
-    <form id="frmEdit">
-        <input name="id" id="id" type="hidden" value="${model.id}">
-        <input name="views" id="views" type="hidden" value="${model.views}">
-        <div class="form-group">
-            <label for="txtName">Name product</label>
-            <input type="text" class="form-control" id="txtName" name="name" value="${model.name}" autofocus>
-        </div>
-        <div class="form-group">
-            <label for="sel1">Select category:</label>
-            <select class="form-control" id="sel1" name="categoryId">
-                <c:forEach items="${listCategory}" var="item">
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Update category</h5>
+    </div>
+    <div class="card-body">
+        <form id="frmEdit">
+            <input name="id" id="id" type="hidden" value="${model.id}">
+            <input name="views" id="views" type="hidden" value="${model.views}">
+            <div class="form-group">
+                <label for="txtName">Name product</label>
+                <input type="text" class="form-control" id="txtName" name="name" value="${model.name}" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="sel1">Select category:</label>
+                <select class="form-control" id="sel1" name="categoryId">
+                    <c:forEach items="${listCategory}" var="item">
 
-                    <option value="${item.id}" <c:if test="${item.id == model.categoryId}">selected="selected"</c:if> >${item.name}</option>
-                </c:forEach>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Short description:</label>
-            <input type="text" class="form-control" id="shortSummary" name="shortSummary" value="${model.shortSummary}">
-        </div>
+                        <option value="${item.id}" <c:if test="${item.id == model.categoryId}">selected="selected"</c:if> >${item.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Short description:</label>
+                <input type="text" class="form-control" id="shortSummary" name="shortSummary" value="${model.shortSummary}">
+            </div>
 
-        <div class="form-group">
-            <label for="content">Content:</label>
-            <textarea class="form-control" rows="5" id="content" name="content">${model.content}</textarea>
-        </div>
-        <div class="form-group">
-            <label>Price:</label>
-            <input type="number" class="form-control" id="price" name="price" value="${model.price}">
-        </div>
-        <div class="form-group">
-            <label>Manufacturer:</label>
-            <input type="text" class="form-control" id="manufacturer" name="manufacturer" value="${model.manufacturer}">
-        </div>
-        <div class="custom-file mb-3">
-            <input type="file" class="custom-file-input" id="image" name="image">
-            <label class="custom-file-label" for="image">Choose image</label>
-        </div>
-        <a href="<c:url value='/admin-product'/>" class="btn btn-success" role="button">
-            <<
-        </a>
-        <button class="btn btn-primary" id="btnUpdate">
-            Update
-        </button>
-        <button class="btn btn-danger" id="btnDelete">
-            Delete
-        </button>
-    </form>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea class="form-control" rows="5" id="content" name="content">${model.content}</textarea>
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input type="number" class="form-control" id="price" name="price" value="${model.price}">
+            </div>
+            <div class="form-group">
+                <label>Manufacturer:</label>
+                <input type="text" class="form-control" id="manufacturer" name="manufacturer" value="${model.manufacturer}">
+            </div>
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="image" name="image">
+                <label class="custom-file-label" for="image">Choose image</label>
+            </div>
+            <a href="<c:url value='/admin-product'/>" class="btn btn-success" role="button">
+                <<
+            </a>
+            <button class="btn btn-primary" id="btnUpdate">
+                Update
+            </button>
+            <button class="btn btn-danger" id="btnDelete">
+                Delete
+            </button>
+        </form>
+    </div>
 </div>
+
 
 <script>
     $('#btnUpdate').click(function (e) {

@@ -33,7 +33,7 @@
                     <p class="card-text">${item.shortSummary}</p>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-primary mr-right" role="button" href="<c:url value='/admin-product?action=edit&id=${item.id}'/> ">Add product</a>
+                    <a class="btn btn-primary mr-right" role="button" href="<c:url value='/admin-product?action=edit&id=${item.id}'/> ">Edit product</a>
                 </div>
             </div>
         </div>

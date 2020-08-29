@@ -14,6 +14,7 @@ public class CategoryMapper implements RowMapper{
             model.setId(resultSet.getInt("id"));
             model.setName(resultSet.getString("name"));
             model.setSlug(resultSet.getString("code"));
+            model.setIsDelete(resultSet.getInt("isDelete"));
             return model;
         } catch (SQLException e) {
             return null;

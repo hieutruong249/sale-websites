@@ -28,13 +28,13 @@ public class CategoryDAO extends AbstractDAO<CategoryModel> implements ICategory
 
     @Override
     public int add(Object... parameters) {
-        String sql = "INSERT INTO category (name) VALUES (?)";
+        String sql = "INSERT INTO category (name,code,isDelete) VALUES (?,?,?)";
         return insert(sql, parameters);
     }
 
     @Override
     public void update(Object... parameters) {
-        String sql = "UPDATE category SET name = ?, isDelete = ? WHERE id = ?";
+        String sql = "UPDATE category SET name = ?, code = ?, isDelete = ? WHERE id = ?";
         update(sql, parameters);
     }
 

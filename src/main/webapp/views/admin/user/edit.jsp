@@ -14,11 +14,11 @@
     <title>Title</title>
 </head>
 <body>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Add category</h3>
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Update user</h5>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <form id="frmEdit">
             <input type="hidden" id="id" name="id" value="${model.id}">
             <div class="form-group">

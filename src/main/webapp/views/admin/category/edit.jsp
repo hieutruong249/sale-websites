@@ -7,35 +7,82 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
-<%@page isELIgnored="false" %>
+<c:url var="APIurl" value='/api-admin-category'/>
+<c:url var="urlList" value="/admin-category"/>
 <html>
 <head>
 
 </head>
 <body>
-<div class="panel panel-default">
-    <div class="panel-heading" style="display:flex; flex:1; justify-content:space-between; align-items:center">
-        <span class="panel-title">Edit category</span>
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Edit category</h5>
     </div>
-    <div class="panel-body">
-        <form method="POST" id="frmEdit" action="<c:url value='/api-admin-category?action=edit'/>">
-            <input name="id" value='${model.id}'type="hidden">
+    <div class="card-body">
+        <form id="frmEdit">
+            <input name="id" value='${model.id}' type="hidden">
+            <input name="slug" value='${model.slug}' type="hidden">
+            <input name="isDelete" value='${model.isDelete}' type="hidden">
             <div class="form-group">
-                <label for="txtCategoryName">Name category</label>
-                <input type="text" class="form-control" id="txtName" name="name" autofocus
+                <label for="name">Name category</label>
+                <input type="text" class="form-control" id="name" name="name" autofocus
                        value='${model.name}'>
 
             </div>
             <a href="<c:url value='/admin-category'/>" class="btn btn-success" role="button">
                 <<
             </a>
-            <button type="submit" class="btn btn-primary">
+            <button class="btn btn-primary" id="btnUpdate">
                 Update
             </button>
-            <a class="btn btn-danger" role="button" href="<c:url value='/api-admin-category?action=delete&id=${model.id}'/>" >Delete</a>
-
+            <button class="btn btn-danger" id="btnDelete">
+                Delete
+            </button>
         </form>
     </div>
 </div>
+
+<script>
+    $('#btnUpdate').click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#frmEdit').serializeArray();
+        $.each(formData, function (i, v) {
+            data["" + v.name + ""] = v.value;
+        })
+        add(data,'PUT');
+    })
+
+    $('#btnDelete').click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#frmEdit').serializeArray();
+        $.each(formData, function (i, v) {
+            data["" + v.name + ""] = v.value;
+        })
+        add(data,'DELETE');
+    })
+
+    function add(data,type) {
+        $.ajax({
+            url: '${APIurl}',
+            type: type,
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function (result) {
+                console.log(result);
+                if (result != 0) {
+                    location.replace('${urlList}');
+                } else {
+
+                }
+            },
+            error: function (result) {
+                console.log(result);
+            }
+        })
+    }
+</script>
 </body>
 </html>

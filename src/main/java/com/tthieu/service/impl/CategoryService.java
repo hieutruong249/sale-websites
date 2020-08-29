@@ -29,12 +29,12 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public int add(CategoryModel model) {
-        return category.add(model.getName());
+        return category.add(model.getName(), model.getSlug(), model.getIsDelete());
     }
 
     @Override
     public void update(CategoryModel model) {
-        category.update(model.getName(), model.getIsDelete(), model.getId());
+        category.update(model.getName(), model.getSlug(), model.getIsDelete(), model.getId());
     }
 
     @Override
