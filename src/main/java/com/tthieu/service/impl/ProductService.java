@@ -34,14 +34,14 @@ public class ProductService implements IProductService {
 
     @Override
     public int add(ProductModel model) {
-//        return product.add(model.getName(), model.getSlug(), model.getShortSummary(), model.getContent(), model.getPrice(), model.getCreatedDate(), model.getCategoryId(), model.getManufacturer(), model.getImage(), 0);
-        return product.add(model.getName());
+      return product.add(model.getName(), model.getSlug(), model.getShortSummary(), model.getContent(), model.getCreatedDate(), model.getCategoryId(), model.getManufacturer(), 0, model.getPrice());
+        //return product.add(model.getName());
 
     }
 
     @Override
     public void update(ProductModel model) {
-        product.update(model.getName(), model.getSlug(), model.getShortSummary(), model.getContent(), model.getPrice(), model.getCreatedDate(),model.getCategoryId(), model.getManufacturer(), model.getImage(), model.getViews(), model.getId());
+        product.update(model.getName(), model.getSlug(), model.getShortSummary(), model.getContent(), model.getPrice(), model.getCreatedDate(),model.getCategoryId(), model.getManufacturer(), model.getViews(), model.getId());
     }
 
     @Override

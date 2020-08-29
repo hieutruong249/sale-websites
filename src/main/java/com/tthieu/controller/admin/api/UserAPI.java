@@ -38,12 +38,12 @@ public class UserAPI extends HttpServlet {
                 String url = null;
                 SessionUtil.getInstance().putValue(req, "USERMODEL", userModel);
                 if (userModel.getRoleId() == 1) {
-                    mapper.writeValue(resp.getOutputStream(), 1); //admin
+                    mapper.writeValue(resp.getOutputStream(), 1); //redirect admin page
                 } else {
-                    mapper.writeValue(resp.getOutputStream(), 2); //user
+                    mapper.writeValue(resp.getOutputStream(), 2); //redirect user page
                 }
             } else {
-                mapper.writeValue(resp.getOutputStream(), 0); // err
+                mapper.writeValue(resp.getOutputStream(), 0); //err
             }
         } else if (model.getType().equals("register")) {
             mapper.writeValue(resp.getOutputStream(), userService.add(model));

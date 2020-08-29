@@ -1,6 +1,5 @@
 package com.tthieu.service;
 
-import com.tthieu.model.CategoryModel;
 import com.tthieu.model.ProductModel;
 
 import java.util.List;

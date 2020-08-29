@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/taglib.jsp" %>
 <c:url var="APIurl" value="/api-admin-product"/>
+<c:url var="urlList" value="/admin-product"/>
 <html>
 <head>
 
@@ -15,10 +16,11 @@
 <body>
 <div class="panel-body">
     <form id="frmEdit">
-        <input name="id" id="id" type="hidden" value="${model.shortSummary}">
+        <input name="id" id="id" type="hidden" value="${model.id}">
+        <input name="views" id="views" type="hidden" value="${model.views}">
         <div class="form-group">
             <label for="txtName">Name product</label>
-            <input type="text" class="form-control" id="txtName" name="name" autofocus>
+            <input type="text" class="form-control" id="txtName" name="name" value="${model.name}" autofocus>
         </div>
         <div class="form-group">
             <label for="sel1">Select category:</label>
@@ -36,7 +38,7 @@
 
         <div class="form-group">
             <label for="content">Content:</label>
-            <textarea class="form-control" rows="5" id="content">${model.content}</textarea>
+            <textarea class="form-control" rows="5" id="content" name="content">${model.content}</textarea>
         </div>
         <div class="form-group">
             <label>Price:</label>
@@ -69,7 +71,7 @@
         var formData = $('#frmEdit').serializeArray();
         $.each(formData, function (i, v) {
             data["" + v.name + ""] = v.value;
-            console.log(data);
+
         })
 
         updateProduct(data,'PUT');
@@ -81,7 +83,7 @@
         var formData = $('#frmEdit').serializeArray();
         $.each(formData, function (i, v) {
             data["" + v.name + ""] = v.value;
-            console.log(data);
+
         })
 
         updateProduct(data,'DELETE');
@@ -93,7 +95,18 @@
             type: type,
             contentType: 'application/json',
             data: JSON.stringify(data),
-            dataType: 'json'
+            dataType: 'json',
+            success: function (result) {
+                console.log(result);
+                if (result != 0) {
+                    location.replace('${urlList}');
+                } else {
+
+                }
+            },
+            error: function (result) {
+                console.log(result);
+            }
         })
     }
 

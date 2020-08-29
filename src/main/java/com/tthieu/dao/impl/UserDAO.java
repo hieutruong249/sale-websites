@@ -1,9 +1,7 @@
 package com.tthieu.dao.impl;
 
 import com.tthieu.dao.IUserDAO;
-import com.tthieu.mapper.CategoryMapper;
 import com.tthieu.mapper.UserMapper;
-import com.tthieu.model.ProductModel;
 import com.tthieu.model.UserModel;
 
 import java.util.List;

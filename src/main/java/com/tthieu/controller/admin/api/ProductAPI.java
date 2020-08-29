@@ -1,5 +1,6 @@
 package com.tthieu.controller.admin.api;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.slugify.Slugify;
 import com.tthieu.model.ProductModel;
 import com.tthieu.service.ICategoryService;
@@ -40,53 +41,34 @@ public class ProductAPI extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
 
-        //ProductModel model = HttpUtil.of(req.getReader()).toModel(ProductModel.class);
+        ProductModel model = HttpUtil.of(req.getReader()).toModel(ProductModel.class);
 
-//        model.setSlug(new Slugify().slugify(model.getName()));
-//        model.setCreatedDate(new Timestamp(System.currentTimeMillis()));
-        ProductModel model = new ProductModel();
-        model.setName("abc");
+        model.setSlug(new Slugify().slugify(model.getName()));
+        model.setCreatedDate(new Timestamp(System.currentTimeMillis()));
+
         System.out.println(model.toString());
         productService.add(model);
 
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(resp.getOutputStream(), 1);
 
-//        req.setCharacterEncoding("UTF-8");
-//
-//        String action = req.getParameter("action");
-//        if (action != null) {
-//            ProductModel model = new ProductModel();
-//
-//            model.setImage(req.getParameter("image"));
-//            model.setName(req.getParameter("name"));
-//            model.setPrice(Double.parseDouble(req.getParameter("price")));
-//            model.setShortDescription(req.getParameter("shortDescription"));
-//            model.setContent(req.getParameter("content"));
-//            model.setManufacturer(req.getParameter("manufacturer"));
-//
-//            if (action.equals("add")) {
-//
-//                productService.add(model);
-//            } else if (action.equals("edit")) {
-//                model.setId(Integer.parseInt(req.getParameter("id")));
-//
-//                productService.update(model);
-//            }
-//
-//            resp.sendRedirect(req.getContextPath() + "/admin-product");
-//
-//        }
+
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/json");
-        System.out.println("put");
         ProductModel model = HttpUtil.of(req.getReader()).toModel(ProductModel.class);
-        Slugify slg = new Slugify();
-        String result = slg.slugify(model.getName());
-        model.setSlug(result);
+
+        model.setSlug(new Slugify().slugify(model.getName()));
+        model.setCreatedDate(new Timestamp(System.currentTimeMillis()));
+
         System.out.println(model.toString());
-        //productService.add(model);
+        productService.update(model);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(resp.getOutputStream(), 1);
+
     }
 }

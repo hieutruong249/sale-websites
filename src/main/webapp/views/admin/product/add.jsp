@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/taglib.jsp" %>
 <c:url var="APIurl" value="/api-admin-product"/>
-
+<c:url var="urlList" value="/admin-product"/>
 <html>
 <head>
 
@@ -36,7 +36,7 @@
 
         <div class="form-group">
             <label for="content">Content:</label>
-            <textarea class="form-control" rows="5" id="content"></textarea>
+            <textarea class="form-control" rows="5" id="content" name="content"></textarea>
         </div>
         <div class="form-group">
             <label>Price:</label>
@@ -68,7 +68,6 @@
         var formData = $('#frmAdd').serializeArray();
         $.each(formData, function (i, v) {
             data["" + v.name + ""] = v.value;
-            console.log(data);
         })
 
         addProduct(data);
@@ -80,7 +79,18 @@
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
-            dataType: 'json'
+            dataType: 'json',
+            success: function (result) {
+                console.log(result);
+                if (result != 0) {
+                    location.replace('${urlList}');
+                } else {
+
+                }
+            },
+            error: function (result) {
+                console.log(result);
+            }
         })
     }
 </script>
