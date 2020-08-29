@@ -2,8 +2,7 @@
 <decorators defaultdir="/decorators">
     <excludes>
         <pattern>/api*</pattern>
-        <pattern>/register</pattern>
-        <pattern>/login</pattern>
+        <pattern>/user*</pattern>
     </excludes>
 
     <decorator name="admin" page="admin.jsp">

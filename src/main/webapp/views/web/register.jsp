@@ -86,7 +86,7 @@
                             </button>
                         </div>
                         <div class="login-register">
-                            <a href="login">Login</a>
+                            <a href="<c:url value="/user?action=login"/>">Login</a>
                         </div>
                     </form>
                 </div>

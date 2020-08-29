@@ -1,5 +1,6 @@
 package com.tthieu.controller.web;
 
+import com.tthieu.model.ProductModel;
 import com.tthieu.service.ICategoryService;
 import com.tthieu.service.ICommentService;
 import com.tthieu.service.IProductService;
@@ -30,7 +31,11 @@ public class Product extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
 
         int id = Integer.parseInt(req.getParameter("id"));
-        req.setAttribute("model", productService.findOne(id));
+        ProductModel model= productService.findOne(id);
+        model.setViews(model.getViews()+1);
+        productService.update(model);
+        req.setAttribute("model", model);
+
         req.setAttribute("listCategory", categoryService.findAll());
         req.setAttribute("listComment", commentService.findByProductId(id));
 
