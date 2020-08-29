@@ -5,68 +5,78 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractModel<T> {
-	
-	private int id;
-	private Timestamp createdDate;
-	private String name;
-	private String slug;
-	private String alert;
-	private String message;
-	private int isDelete = 0;
 
-	public int getIsDelete() {
-		return isDelete;
-	}
+    private int id;
+    private Timestamp createdDate;
+    private String name;
+    private String slug;
+    private String alert;
+    private String message;
+    private String type;
+    private int isDelete = 0;
 
-	public void setIsDelete(int isDelete) {
-		this.isDelete = isDelete;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
-	public Timestamp getCreatedDate() {
-		return createdDate;
-	}
+    public int getIsDelete() {
+        return isDelete;
+    }
 
-	public void setCreatedDate(Timestamp createdDate) {
-		this.createdDate = createdDate;
-	}
+    public void setIsDelete(int isDelete) {
+        this.isDelete = isDelete;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getSlug() {
-		return slug;
-	}
+    public Timestamp getCreatedDate() {
+        return createdDate;
+    }
 
-	public void setSlug(String slug) {
-		this.slug = slug;
-	}
+    public void setCreatedDate(Timestamp createdDate) {
+        this.createdDate = createdDate;
+    }
 
-	public String getAlert() {
-		return alert;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setAlert(String alert) {
-		this.alert = alert;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getSlug() {
+        return slug;
+    }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public String getAlert() {
+        return alert;
+    }
+
+    public void setAlert(String alert) {
+        this.alert = alert;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

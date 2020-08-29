@@ -3,7 +3,6 @@ package com.tthieu.controller.web;
 
 import com.tthieu.utils.SessionUtil;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +15,6 @@ public class Logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         SessionUtil.getInstance().removeValue(req,"USERMODEL");
-        resp.sendRedirect(req.getContextPath() + "trang-chu");
+        resp.sendRedirect(req.getContextPath() + "/trang-chu");
     }
 }

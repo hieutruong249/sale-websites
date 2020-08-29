@@ -30,31 +30,34 @@ public class ProductController extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("application/html;charset=UTF-8");
         String action = req.getParameter("action");
+        StringBuilder url = new StringBuilder("/views/admin/product/");
+
 
         if(action!=null){
-            //System.out.println(action);
             List<CategoryModel> listCategory = categoryService.findAll();
             req.setAttribute("listCategory", listCategory);
 
             if(action.equals("add")){
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/product/add.jsp");
-                dispatcher.forward(req, resp);
+                url.append("add.jsp");
+
             }else if(action.equals("edit")){
                 int id = Integer.parseInt(req.getParameter("id"));
 
                 ProductModel model = productService.findOne(id);
                 System.out.println(model);
                 req.setAttribute("model", model);
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/product/edit.jsp");
-                dispatcher.forward(req, resp);
+                url.append("edit.jsp");
+
             }
 
         }else {
             List<ProductModel> list = productService.findAll();
             req.setAttribute("list", list);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/views/admin/product/list.jsp");
-            dispatcher.forward(req, resp);
+            url.append("list.jsp");
+
         }
+        RequestDispatcher dispatcher = req.getRequestDispatcher(String.valueOf(url));
+        dispatcher.forward(req, resp);
 
     }
 }

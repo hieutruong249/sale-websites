@@ -36,13 +36,15 @@ public class ProductDAO extends AbstractDAO<CategoryModel> implements IProductDA
 
     @Override
     public int add(Object... parameters) {
-        String sql = "INSERT INTO product (name) VALUES (?)";
+//        String sql = "INSERT INTO product(name, slug, shortSummary, content, price, createdDate, categoryId, manufacturer, image, views) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO product(name) VALUES (?)";
+
         return insert(sql, parameters);
     }
 
     @Override
     public void update(Object... parameters) {
-        String sql = "UPDATE product SET name = ?, isDelete = ? WHERE id = ?";
+        String sql = "UPDATE product SET name = ?, slug = ?, shortSummary = ?, content = ?, price = ?, createdDate = ?, categoryId = ?, manufacturer = ?, image = ?, views = ? WHERE id = ?";
         update(sql, parameters);
     }
 

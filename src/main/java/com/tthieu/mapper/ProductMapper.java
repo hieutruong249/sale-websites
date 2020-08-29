@@ -13,8 +13,8 @@ public class ProductMapper implements RowMapper{
             model.setId(resultSet.getInt("id"));
             model.setName(resultSet.getString("name"));
             model.setSlug(resultSet.getString("slug"));
-            model.setImage(resultSet.getString("Image"));
-            model.setShortDescription(resultSet.getString("shortSummary"));
+            model.setImage(resultSet.getString("image"));
+            model.setShortSummary(resultSet.getString("shortSummary"));
             model.setCategoryId(resultSet.getInt("categoryId"));
             model.setPrice(resultSet.getDouble("price"));
             model.setViews(resultSet.getInt("views"));

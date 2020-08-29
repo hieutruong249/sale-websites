@@ -1,7 +1,7 @@
 package com.tthieu.model;
 
 public class ProductModel extends AbstractModel{
-    private String shortDescription;
+    private String shortSummary;
     private String content;
     private String image;
     private double price;
@@ -9,12 +9,13 @@ public class ProductModel extends AbstractModel{
     private String manufacturer;
     private int views;
 
-    public String getShortDescription() {
-        return shortDescription;
+
+    public String getShortSummary() {
+        return shortSummary;
     }
 
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
+    public void setShortSummary(String shortSummary) {
+        this.shortSummary = shortSummary;
     }
 
     public String getContent() {
@@ -63,5 +64,20 @@ public class ProductModel extends AbstractModel{
 
     public void setViews(int views) {
         this.views = views;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductModel{" +
+                "name='" + getName() + '\'' +
+                "shortSummary='" + shortSummary + '\'' +
+                ", content='" + content + '\'' +
+                ", image='" + image + '\'' +
+                ", price=" + price +
+                ", categoryId=" + categoryId +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", Slug='" + getSlug() + '\'' +
+                ", views=" + views +
+                '}';
     }
 }

@@ -98,8 +98,10 @@ public class AbstractDAO<T> implements GenericDAO<T> {
                 id = resultSet.getInt(1);
             }
             connection.commit();
+            System.out.println("tc");
             return id;
         } catch (SQLException e) {
+            System.out.println("tb");
             if (connection != null) {
                 try {
                     connection.rollback();
