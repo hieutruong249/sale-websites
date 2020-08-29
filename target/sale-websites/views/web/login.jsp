@@ -27,15 +27,15 @@
         <div class="fadeIn first">
             <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png"
                  style="height: 50px; width: 50px" id="icon" alt="User Icon"/>
-                <br><small id="errMessage" style="color: firebrick"></small>
+            <br><small id="errMessage" style="color: firebrick"></small>
         </div>
 
         <!-- Login Form -->
         <form id="frmLogin"/>
-            <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
-            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-            <input type="hidden" name="type" value="login">
-            <input type="button" id="btnLogin" class="fadeIn fourth" value="Log In">
+        <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
+        <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+        <input type="hidden" name="type" value="login">
+        <input type="button" id="btnLogin" class="fadeIn fourth" value="Log In">
         </form>
 
         <!-- Remind Passowrd -->
@@ -66,19 +66,17 @@
             contentType: 'application/json',
             data: JSON.stringify(data),
             dataType: 'json',
-            success: function (result){
+            success: function (result) {
                 console.log(result);
-                if (result === 1){
+                if (result === 1) {
                     location.replace('${adminURL}');
-                }else if (result === 2){
+                } else if (result === 2) {
                     location.replace('${homeURL}');
-                }
-                else {
+                } else {
                     $('#errMessage').text('Username or password is wrong!!!');
                 }
-
             },
-            error: function (result){
+            error: function (result) {
                 console.log(result);
             }
         })

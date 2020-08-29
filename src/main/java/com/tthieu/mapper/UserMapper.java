@@ -11,10 +11,12 @@ public class UserMapper implements RowMapper{
     public Object mapRow(ResultSet resultSet) {
         UserModel model = new UserModel();
         try {
+            model.setId(resultSet.getInt("id"));
             model.setUsername(resultSet.getString("username"));
             model.setPassword(resultSet.getString("password"));
             model.setFullname(resultSet.getString("fullname"));
             model.setRoleId(resultSet.getInt("roleId"));
+            model.setIsDelete(resultSet.getInt("isDeleted"));
             return model;
         } catch (SQLException e) {
             return null;

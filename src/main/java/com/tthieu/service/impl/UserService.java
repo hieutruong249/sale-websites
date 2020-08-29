@@ -5,6 +5,7 @@ import com.tthieu.model.UserModel;
 import com.tthieu.service.IUserService;
 
 import javax.inject.Inject;
+import java.util.List;
 
 public class UserService implements IUserService {
 
@@ -12,8 +13,18 @@ public class UserService implements IUserService {
     IUserDAO userDAO;
 
     @Override
+    public List<UserModel> findAll() {
+        return userDAO.findAll();
+    }
+
+    @Override
     public UserModel findOne(String username, String password) {
         return userDAO.findOne(username, password);
+    }
+
+    @Override
+    public UserModel findOne(int id) {
+        return userDAO.findOneById(id);
     }
 
     @Override

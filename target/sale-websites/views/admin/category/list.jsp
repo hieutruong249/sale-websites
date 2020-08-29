@@ -8,16 +8,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/common/taglib.jsp"%>
-<%@page isELIgnored="false" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Admin - category</title>
 </head>
 <body>
 <div class="row">
     <div class="col-md-10"></div>
     <div class="col-md-2">
-        <a class="btn btn-success mr-right" role="button" href="<c:url value='/admin-category?action=add'/> ">Thêm danh mục</a>
+        <a class="btn btn-success mr-right" role="button" href="<c:url value='/admin-category?action=add'/> ">Add category</a>
     </div>
 </div>
 <div style="margin-top: 30px">
@@ -26,8 +25,8 @@
         <thead class="thead-light">
         <tr>
             <th scope="col">id</th>
-            <th scope="col">Tên danh mục</th>
-            <th scope="col">Trạng thái</th>
+            <th scope="col">Name category</th>
+            <th scope="col">Status</th>
             <th scope="col"></th>
         </tr>
         </thead>
@@ -38,7 +37,7 @@
                 <td>${item.name}</td>
                 <td>${item.isDelete}</td>
                 <td>
-                    <a class="btn btn-primary mr-right" role="button" href="<c:url value='/admin-category?action=edit&id=${item.id}'/> ">Chỉnh sửa</a>
+                    <a class="btn btn-primary mr-right" role="button" href="<c:url value='/admin-category?action=edit&id=${item.id}'/> ">Edit</a>
                 </td>
             </tr>
         </c:forEach>

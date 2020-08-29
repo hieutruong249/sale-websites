@@ -59,6 +59,9 @@ public class UserAPI extends HttpServlet {
         UserModel model = HttpUtil.of(req.getReader()).toModel(UserModel.class);
         userService.update(model);
 
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(resp.getOutputStream(), 1);
+
     }
 
     @Override
@@ -69,5 +72,8 @@ public class UserAPI extends HttpServlet {
         UserModel model = HttpUtil.of(req.getReader()).toModel(UserModel.class);
         model.setIsDelete(1);
         userService.update(model);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(resp.getOutputStream(), 1);
     }
 }

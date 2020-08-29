@@ -1,7 +1,9 @@
 package com.tthieu.dao.impl;
 
 import com.tthieu.dao.IUserDAO;
+import com.tthieu.mapper.CategoryMapper;
 import com.tthieu.mapper.UserMapper;
+import com.tthieu.model.ProductModel;
 import com.tthieu.model.UserModel;
 
 import java.util.List;
@@ -9,8 +11,21 @@ import java.util.List;
 public class UserDAO extends AbstractDAO<UserModel> implements IUserDAO {
 
     @Override
+    public List<UserModel> findAll() {
+        String sql = "SELECT * FROM user";
+        return query(sql, new UserMapper());
+    }
+
+    @Override
     public UserModel findOne(Object... parameters) {
         String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+        List<UserModel> list = query(sql, new UserMapper(), parameters);
+        return list.isEmpty() ? null : list.get(0);
+    }
+
+    @Override
+    public UserModel findOneById(Object... parameters) {
+        String sql = "SELECT * FROM user WHERE id = ? ";
         List<UserModel> list = query(sql, new UserMapper(), parameters);
         return list.isEmpty() ? null : list.get(0);
     }
