@@ -56,6 +56,8 @@ public class ProductController extends HttpServlet {
             url.append("list.jsp");
 
         }
+
+        req.setAttribute("product",1);
         RequestDispatcher dispatcher = req.getRequestDispatcher(String.valueOf(url));
         dispatcher.forward(req, resp);
 

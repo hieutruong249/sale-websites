@@ -44,7 +44,7 @@ public class CategoryController extends HttpServlet {
             req.setAttribute("list", list);
             url.append("list.jsp");
         }
-
+        req.setAttribute("category",1);
         RequestDispatcher dispatcher = req.getRequestDispatcher(url.toString());
         dispatcher.forward(req, resp);
     }

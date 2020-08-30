@@ -9,7 +9,7 @@
 <%@ include file="/common/taglib.jsp"%>
 <html>
 <head>
-    <title></title>
+    <title>Admin - category</title>
 </head>
 <body>
 <div class="row">

@@ -45,6 +45,7 @@ public class UserController extends HttpServlet {
             url.append("list.jsp");
         }
 
+        req.setAttribute("user",1);
         RequestDispatcher dispatcher = req.getRequestDispatcher(url.toString());
         dispatcher.forward(req, resp);
     }
