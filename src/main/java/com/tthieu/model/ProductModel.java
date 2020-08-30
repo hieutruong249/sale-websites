@@ -9,6 +9,12 @@ public class ProductModel extends AbstractModel{
     private String manufacturer;
     private int views;
 
+    public ProductModel() {
+    }
+
+    public ProductModel(int id){
+        setId(id);
+    }
 
     public String getShortSummary() {
         return shortSummary;

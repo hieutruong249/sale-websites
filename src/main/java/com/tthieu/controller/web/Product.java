@@ -31,11 +31,12 @@ public class Product extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
 
         int id = Integer.parseInt(req.getParameter("id"));
-        ProductModel model= productService.findOne(id);
-        model.setViews(model.getViews()+1);
-        productService.update(model);
-        req.setAttribute("model", model);
 
+        ProductModel model = productService.findOne(id);
+        model.setViews(model.getViews() + 1);
+        productService.update(model);
+
+        req.setAttribute("model", model);
         req.setAttribute("listCategory", categoryService.findAll());
         req.setAttribute("listComment", commentService.findByProductId(id));
 

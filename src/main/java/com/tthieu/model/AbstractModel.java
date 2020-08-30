@@ -14,6 +14,7 @@ public class AbstractModel<T> {
     private String message;
     private String type;
     private int isDelete = 0;
+    private int count = 1;
 
     public String getType() {
         return type;
@@ -78,5 +79,13 @@ public class AbstractModel<T> {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
