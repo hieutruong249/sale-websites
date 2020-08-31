@@ -1,10 +1,7 @@
 package com.tthieu.controller.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.slugify.Slugify;
-import com.tthieu.model.CategoryModel;
 import com.tthieu.model.ProductModel;
-import com.tthieu.model.UserModel;
 import com.tthieu.service.ICategoryService;
 import com.tthieu.service.IProductService;
 import com.tthieu.utils.HttpUtil;
@@ -38,14 +35,22 @@ public class Shopcart extends HttpServlet {
         String action = req.getParameter("action");
         StringBuilder url = new StringBuilder("/views/web/shopcart/");
 
+        List<ProductModel> shopcart = (List<ProductModel>) SessionUtil.getInstance().getValue(req, "SHOPCART");
+
         if (action != null) {
             if (action.equals("edit")) {
+                int id = Integer.parseInt(req.getParameter("id"));
+                for (ProductModel item:shopcart){
+                    if (item.getId() == id){
+                        req.setAttribute("model",item);
+                        break;
+                    }
+                }
                 url.append("edit.jsp");
             }
         } else {
-            List<ProductModel> shopcart = (List<ProductModel>) SessionUtil.getInstance().getValue(req, "SHOPCART");
-            if (shopcart != null) {
-                Double total = 0.0;
+            if (shopcart != null && shopcart.size()!=0) {
+                double total = 0.0;
                 for (ProductModel item:shopcart){
                     total+=item.getPrice()*item.getCount();
                 }
@@ -98,13 +103,59 @@ public class Shopcart extends HttpServlet {
 
         SessionUtil.getInstance().putValue(req, "SHOPCART", shopcart);
 
-        for (ProductModel item : shopcart) {
-            System.out.println("ID:" + item.getId() + " " + "count:" + item.getCount() + " ");
-        }
-        System.out.println("////");
+//        for (ProductModel item : shopcart) {
+//            System.out.println("ID:" + item.getId() + " " + "count:" + item.getCount() + " ");
+//        }
+//        System.out.println("////");
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.writeValue(resp.getOutputStream(), 1);
 
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json");
+
+        ProductModel model = HttpUtil.of(req.getReader()).toModel(ProductModel.class);
+
+        List<ProductModel> shopcart = (List<ProductModel>) SessionUtil.getInstance().getValue(req, "SHOPCART");
+
+        for (ProductModel item : shopcart) {
+            if (item.getId() == model.getId()) {
+                item.setCount(model.getCount());
+                break;
+            }
+        }
+
+        SessionUtil.getInstance().removeValue(req, "SHOPCART");
+        SessionUtil.getInstance().putValue(req, "SHOPCART", shopcart);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(resp.getOutputStream(), 1);
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setContentType("application/json");
+
+        ProductModel model = HttpUtil.of(req.getReader()).toModel(ProductModel.class);
+
+        List<ProductModel> shopcart = (List<ProductModel>) SessionUtil.getInstance().getValue(req, "SHOPCART");
+
+        for (ProductModel item : shopcart) {
+            if (item.getId() == model.getId()) {
+                shopcart.remove(item);
+                break;
+            }
+        }
+
+        SessionUtil.getInstance().removeValue(req, "SHOPCART");
+        SessionUtil.getInstance().putValue(req, "SHOPCART", shopcart);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(resp.getOutputStream(), 1);
     }
 }

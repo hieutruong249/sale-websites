@@ -22,13 +22,10 @@
 <!-- Navigation -->
 <%@ include file="/common/admin/header.jsp" %>
 <div class="container">
-    <!-- menu -->
-<%--    <%@ include file="/common/admin/menu.jsp" %>--%>
 
     <div style="margin-top: 80px">
         <dec:body/>
     </div>
-
 
 </div>
 

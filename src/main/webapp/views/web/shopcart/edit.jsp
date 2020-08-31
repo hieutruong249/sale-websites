@@ -6,7 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="/common/taglib.jsp"%>
+<%@ include file="/common/taglib.jsp" %>
+<c:url var="updateShopcart_url" value="/shopcart"/>
 <html>
 <head>
     <title>Title</title>
@@ -48,5 +49,49 @@
     </div>
 </div>
 <br>
+
+<script>
+    $('#btnUpdate').click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#frmEdit').serializeArray();
+        $.each(formData, function (i, v) {
+            data["" + v.name + ""] = v.value;
+        })
+
+        update(data,'PUT');
+    })
+
+    $('#btnDelete').click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#frmEdit').serializeArray();
+        $.each(formData, function (i, v) {
+            data["" + v.name + ""] = v.value;
+        })
+
+        update(data,'DELETE');
+    })
+
+    function update(data, type) {
+        $.ajax({
+            url: '${updateShopcart_url}',
+            type: type,
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function (result) {
+                if (result != 0) {
+                    location.replace('${updateShopcart_url}');
+                } else {
+                    console.log(result);
+                }
+            },
+            error: function (result) {
+                console.log(result);
+            }
+        })
+    }
+</script>
 </body>
 </html>
