@@ -28,6 +28,8 @@ public class Home extends HttpServlet {
 
         request.setAttribute("listCategory", categoryService.findAll());
         request.setAttribute("listProduct", productService.findAll());
+        request.setAttribute("home",1);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/home.jsp");
         dispatcher.forward(request, response);
     }

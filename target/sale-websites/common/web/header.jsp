@@ -13,10 +13,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="trang-chu">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
+                <li class="nav-item <c:if test="${not empty home}">active</c:if>">
+                    <a class="nav-link" href="trang-chu">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -33,7 +31,7 @@
         </div>
     </div>
     <ul class="navbar-nav mr-right">
-        <li class="nav-item">
+        <li class="nav-item <c:if test="${not empty shopcart}">active</c:if>">
             <a class="nav-link" href="<c:url value='/shopcart'/>">Shopcart</a>
         </li>
         <c:if test="${not empty USERMODEL}">

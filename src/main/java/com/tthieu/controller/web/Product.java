@@ -39,6 +39,7 @@ public class Product extends HttpServlet {
         req.setAttribute("model", model);
         req.setAttribute("listCategory", categoryService.findAll());
         req.setAttribute("listComment", commentService.findByProductId(id));
+        req.setAttribute("categoryId", model.getCategoryId());
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/views/web/detailProduct.jsp");
         dispatcher.forward(req, resp);

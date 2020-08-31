@@ -65,6 +65,7 @@ public class Shopcart extends HttpServlet {
         }
 
         req.setAttribute("listCategory", categoryService.findAll());
+        req.setAttribute("shopcart",1);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(url.toString());
         requestDispatcher.forward(req, resp);

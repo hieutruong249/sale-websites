@@ -58,7 +58,7 @@
         <div class="row">
             <small style="color: limegreen; margin-bottom: 17px; margin-left: 20px" id="txtResult"></small>
         </div>
-        <button id="btnAdd" class="btn btn-primary">Submit</button>
+        <button id="btnAdd" class="btn btn-primary">Comment</button>
     </form>
 </div>
 

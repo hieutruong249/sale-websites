@@ -33,7 +33,7 @@ public class AuthorizationFilter implements Filter {
                     response.sendRedirect(request.getContextPath() + "/trang-chu");
                 }
             }else {
-                response.sendRedirect(request.getContextPath() + "/login");
+                response.sendRedirect(request.getContextPath() + "/user?action=login");
             }
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
