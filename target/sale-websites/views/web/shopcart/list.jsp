@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/taglib.jsp"%>
+<c:url var="APIurl" value="/pay"/>
+
 <html>
 <head>
     <title>Shop cart</title>
@@ -59,5 +61,12 @@
         </div>
     </c:if>
 </div>
+
+<script>
+    $('#btnPay').click(function (e) {
+        e.preventDefault();
+        alert('This function is not available!')
+    })
+</script>
 </body>
 </html>

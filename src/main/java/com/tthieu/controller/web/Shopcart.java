@@ -40,24 +40,24 @@ public class Shopcart extends HttpServlet {
         if (action != null) {
             if (action.equals("edit")) {
                 int id = Integer.parseInt(req.getParameter("id"));
-                for (ProductModel item:shopcart){
-                    if (item.getId() == id){
-                        req.setAttribute("model",item);
+                for (ProductModel item : shopcart) {
+                    if (item.getId() == id) {
+                        req.setAttribute("model", item);
                         break;
                     }
                 }
                 url.append("edit.jsp");
             }
         } else {
-            if (shopcart != null && shopcart.size()!=0) {
+            if (shopcart != null && shopcart.size() != 0) {
                 double total = 0.0;
-                for (ProductModel item:shopcart){
-                    total+=item.getPrice()*item.getCount();
+                for (ProductModel item : shopcart) {
+                    total += item.getPrice() * item.getCount();
                 }
                 req.setAttribute("shopcart", shopcart);
                 req.setAttribute("total", new BigDecimal(total));
 
-            }else{
+            } else {
                 req.setAttribute("message", "message");
             }
 
