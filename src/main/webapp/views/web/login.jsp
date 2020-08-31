@@ -9,7 +9,7 @@
 <%@ include file="/common/taglib.jsp" %>
 <c:url var="APIComment_url" value="/api-admin-user"/>
 <c:url var="adminURL" value="/admin"/>
-<c:url var="homeURL" value="/trang-chu"/>
+<c:url var="homeURL" value="/home"/>
 
 <html>
 <head>

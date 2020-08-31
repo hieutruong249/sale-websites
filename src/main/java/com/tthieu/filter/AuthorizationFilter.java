@@ -30,7 +30,7 @@ public class AuthorizationFilter implements Filter {
                 if (model.getRoleId() == 1){
                     filterChain.doFilter(servletRequest, servletResponse);
                 }else {
-                    response.sendRedirect(request.getContextPath() + "/trang-chu");
+                    response.sendRedirect(request.getContextPath() + "/home");
                 }
             }else {
                 response.sendRedirect(request.getContextPath() + "/user?action=login");

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/taglib.jsp" %>
 <c:url var="APIComment_url" value="/api-admin-user"/>
-<c:url var="loginURL" value="/login"/>
+<c:url var="loginURL" value="/user?action=login"/>
 <html>
 <head>
     <title>Register</title>

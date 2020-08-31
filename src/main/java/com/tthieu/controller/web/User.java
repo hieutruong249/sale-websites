@@ -29,7 +29,7 @@ public class User extends HttpServlet {
             dispatcher.forward(req, resp);
         } else {
             SessionUtil.getInstance().removeValue(req, "USERMODEL");
-            resp.sendRedirect(req.getContextPath() + "/trang-chu");
+            resp.sendRedirect(req.getContextPath() + "/home");
         }
     }
 }
