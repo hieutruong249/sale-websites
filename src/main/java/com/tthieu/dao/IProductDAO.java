@@ -7,6 +7,10 @@ import java.util.List;
 public interface IProductDAO {
     List<ProductModel> findAll();
 
+    List<ProductModel> findMostView();
+
+    List<ProductModel> findLatest();
+
     ProductModel findOne(int id);
 
     List<ProductModel> findByName(String name);

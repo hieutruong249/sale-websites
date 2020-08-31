@@ -27,7 +27,9 @@ public class Home extends HttpServlet {
         response.setContentType("application/html;charset=UTF-8");
 
         request.setAttribute("listCategory", categoryService.findAll());
-        request.setAttribute("listProduct", productService.findAll());
+        request.setAttribute("productsLatest", productService.findLatest());
+        request.setAttribute("productsMostView", productService.findMostView());
+//        request.setAttribute("listProduct", productService.findAll());
         request.setAttribute("home",1);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/web/home.jsp");

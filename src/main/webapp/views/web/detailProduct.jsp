@@ -31,7 +31,7 @@
 
     <div class="col">
         <br>
-        <img src="https://cdn.tgdd.vn/Products/Images/42/220654/oppo-a92-tim-400x460-400x460.png" class="card-img-top"
+        <img src=${model.image} class="card-img-top"
              alt="..."><br>
     </div>
     <div class="col">

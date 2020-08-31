@@ -9,6 +9,10 @@ public interface IProductService {
 
     ProductModel findOne(int id);
 
+    List<ProductModel> findLatest();
+
+    List<ProductModel> findMostView();
+
     List<ProductModel> findByName(String name);
 
     List<ProductModel> findByCategoryId(int id);

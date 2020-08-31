@@ -54,10 +54,11 @@ public class Shopcart extends HttpServlet {
                 for (ProductModel item : shopcart) {
                     total += item.getPrice() * item.getCount();
                 }
-                req.setAttribute("shopcart", shopcart);
+                req.setAttribute("listProduct", shopcart);
                 req.setAttribute("total", new BigDecimal(total));
 
-            } else {
+            }
+            else {
                 req.setAttribute("message", "message");
             }
 

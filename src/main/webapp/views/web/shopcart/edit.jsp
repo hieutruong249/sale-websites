@@ -32,7 +32,7 @@
                 </div>
                 <div class="form-group">
                     <label for="count">Amount:</label>
-                    <input class="form-control" id="count" name="count" value='${model.count}' type="number">
+                    <input class="form-control" id="count" name="count" value='${model.count}' type="number" min="1" onKeyDown="return false">
 
                 </div>
                 <a href="<c:url value='/shopcart'/>" class="btn btn-success" role="button">

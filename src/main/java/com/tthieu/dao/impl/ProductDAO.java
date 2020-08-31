@@ -16,6 +16,18 @@ public class ProductDAO extends AbstractDAO<CategoryModel> implements IProductDA
     }
 
     @Override
+    public List<ProductModel> findMostView() {
+        String sql = "SELECT * FROM product ORDER BY views DESC LIMIT 3";
+        return query(sql, new ProductMapper());
+    }
+
+    @Override
+    public List<ProductModel> findLatest() {
+        String sql = "SELECT * FROM product ORDER BY createdDate DESC LIMIT 3";
+        return query(sql, new ProductMapper());
+    }
+
+    @Override
     public ProductModel findOne(int id) {
         String sql = "SELECT * FROM product WHERE id = ?";
         List<ProductModel> product = query(sql, new ProductMapper(), id);

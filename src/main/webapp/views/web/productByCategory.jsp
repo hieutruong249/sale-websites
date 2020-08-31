@@ -27,7 +27,7 @@
                     <a href="<c:url value='/product?id=${item.id}'/>"><img class="card-img-top" src="${item.image}" alt="image"></a>
                     <div class="card-body">
                         <h4 class="card-title">
-                            <a href="#">${item.name}</a>
+                            <a href="<c:url value='/product?id=${item.id}'/>">${item.name}</a>
                         </h4>
                         <h5>$ ${item.price} </h5>
                         <p class="card-text">${item.shortSummary}</p>
